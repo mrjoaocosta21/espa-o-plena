@@ -1,0 +1,544 @@
+/* ==========================================
+   ARQUITETURA DE VARIÁVEIS (PALETA NOTURNA PREMIUM)
+   ========================================== */
+:root {
+    color-scheme: dark;
+
+    /* Paleta Premium Noturna extraída rigorosamente do "dark-mode" do style2 */
+    --bg-principal: #3a5343;     /* Verde Oliva Fechado / Spa */
+    --bg-cards: #2d4134;         /* Variação mais escura para blocos e cards */
+    --cor-acento: #faf8f5;       /* Off-white Suave para contraste sofisticado */
+    --cor-acento-claro: #4a6b53; /* Verde Sálvia Intermediário */
+    --texto-principal: #faf8f5;  /* Off-white Suave para leitura sênior sem ofuscamento */
+    --texto-cinza: #cbd5ce;      /* Tom cinza/verde claro de suporte */
+    --cor-icone: #d4af37;        /* Dourado Ouro Nobre */
+    --hero-overlay: rgba(58, 83, 67, 0.85);
+    
+    /* Configurações do Cabeçalho e Sombras Noturnas */
+    --header-bg: rgba(58, 83, 67, 0.95);
+    --header-scroll: #2d4134;
+    --shadow-scroll: rgba(0, 0, 0, 0.3);
+    
+    /* Tipografia */
+    --fonte-titulos: 'Georgia', serif;
+    --fonte-texto: 'Segoe UI', Arial, sans-serif;
+}
+
+/* ==========================================
+   RESETS E CONFIGURAÇÕES GERAIS
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    font-family: var(--fonte-texto);
+    font-size: 1.1rem; 
+    line-height: 1.7;
+}
+
+section {
+    padding: 100px 12%;
+    scroll-margin-top: 80px;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulos);
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--cor-acento);
+}
+
+/* ==========================================
+   COMPONENTES DO LAYOUT
+   ========================================== */
+header {
+    background-color: var(--header-bg);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(250, 248, 245, 0.05);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12%; /* Reduzido levemente para acomodar melhor a logo verticalmente */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--texto-principal);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cor-icone);
+}
+
+.hero {
+    height: 100vh;
+    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
+                url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200') no-repeat center center/cover;
+}
+
+.subtitle {
+    display: block;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--texto-cinza);
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    color: var(--cor-acento);
+    margin-bottom: 15px;
+}
+
+.slogan {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--texto-cinza);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    margin: 8px;
+}
+
+.btn.primary {
+    background-color: var(--cor-acento);
+    color: #2d4134; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn.primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    border: 1px solid var(--cor-acento);
+    color: var(--cor-acento);
+}
+
+.btn.secondary:hover {
+    background-color: var(--cor-acento-claro);
+    transform: translateY(-2px);
+}
+
+.sobre {
+    background-color: var(--cor-acento-claro);
+    text-align: center;
+}
+
+.sobre-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sobre p {
+    font-size: 1.15rem;
+    color: var(--texto-principal);
+    opacity: 0.95;
+    margin-bottom: 20px;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--texto-cinza);
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+/* ==========================================
+   SEÇÃO SERVIÇOS
+   ========================================== */
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.servico-card {
+    background-color: var(--bg-cards);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    border: 1px solid rgba(250, 248, 245, 0.03);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    color: var(--cor-icone);
+    margin-bottom: 20px;
+}
+
+.servico-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--cor-acento);
+}
+
+.servico-card p {
+    color: var(--texto-cinza);
+    font-size: 0.95rem;
+}
+
+/* ==========================================
+   SEÇÃO EQUIPE
+   ========================================== */
+.equipe {
+    background-color: var(--bg-principal);
+    text-align: center;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.equipe-card:nth-child(4) {
+    grid-column: 1 / 2;
+    justify-self: end;
+}
+
+.equipe-card:nth-child(5) {
+    grid-column: 2 / 3;
+    justify-self: start;
+}
+
+.equipe-card {
+    background-color: var(--bg-cards);
+    padding: 35px 25px;
+    border-radius: 16px;
+    border: 1px solid rgba(250, 248, 245, 0.03);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.equipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.equipe-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 2px solid var(--cor-icone);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.equipe-card h3 {
+    font-size: 1.3rem;
+    color: var(--cor-acento);
+    margin-bottom: 5px;
+}
+
+.cargo {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cor-icone);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.equipe-card p {
+    color: var(--texto-cinza);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   SEÇÃO CONTATO E NOVOS BOTÕES
+   ========================================== */
+.contato {
+    background-color: var(--bg-principal);
+    text-align: center;
+}
+
+.contato p {
+    color: var(--texto-cinza);
+    margin-bottom: 30px;
+}
+
+.contato-container {
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+}
+
+.info-item i {
+    font-size: 1.8rem;
+    color: var(--cor-icone);
+}
+
+.detalhe {
+    font-size: 1rem;
+    color: var(--texto-cinza);
+}
+
+.contato-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contato-link {
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s;
+}
+
+.contato-link.whatsapp { background-color: #25d366; color: white; }
+.contato-link.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
+
+button.contato-link,
+button.btn {
+    border: none;
+    cursor: pointer;
+    font-family: var(--fonte-texto);
+}
+
+.contato-link:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+footer {
+    background-color: var(--bg-cards);
+    text-align: center;
+    padding: 40px;
+    color: var(--texto-cinza);
+    font-size: 1rem;
+    border-top: 1px solid rgba(250, 248, 245, 0.05);
+}
+
+/* ==========================================
+   MEDIA QUERIES (RESPONSIVIDADE DISPOSITIVOS)
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 15px; }
+    .nav-links { gap: 20px; }
+    .hero h1 { font-size: 3rem; }
+    section { padding: 60px 6%; scroll-margin-top: 100px; }
+    .contato-info { flex-direction: column; align-items: center; gap: 30px; }
+    .info-item { text-align: center; flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+    .equipe-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================
+   CORREÇÃO DA LOGO (visível no fundo escuro)
+   ========================================== */
+.logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    /* Converte a logo branca/transparente para dourado da paleta */
+    filter: brightness(0) saturate(100%) invert(80%) sepia(30%) saturate(400%) hue-rotate(10deg) brightness(110%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.04);
+    filter: brightness(0) saturate(100%) invert(85%) sepia(40%) saturate(500%) hue-rotate(10deg) brightness(120%);
+}
+
+/* ==========================================
+   FORMULÁRIO DE CAPTURA DE LEADS
+   ========================================== */
+.contato-container-novo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    text-align: left;
+    align-items: flex-start;
+}
+
+.captura-leads {
+    background-color: var(--bg-cards);
+    padding: 35px;
+    border-radius: 16px;
+    border: 1px solid rgba(250, 248, 245, 0.05);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+}
+
+.lead-form h3 {
+    margin-bottom: 25px;
+    color: var(--cor-icone);
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: var(--fonte-titulos);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--texto-cinza);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--bg-principal);
+    border: 1px solid rgba(250, 248, 245, 0.1);
+    border-radius: 8px;
+    color: var(--texto-principal);
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--cor-icone);
+}
+
+.form-group select option {
+    background-color: var(--bg-cards);
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Lado direito: info + botões empilhados */
+.contato-info-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.contato-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Botão Maps com estilo da paleta */
+.contato-link.maps-btn {
+    background-color: var(--bg-cards);
+    color: var(--cor-acento);
+    border: 1px solid rgba(250, 248, 245, 0.1);
+}
+
+.contato-link.maps-btn i {
+    color: var(--cor-icone);
+}
+
+/* Responsividade do formulário e equipe */
+@media (max-width: 900px) {
+    .equipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .equipe-card:nth-child(4),
+    .equipe-card:nth-child(5) {
+        grid-column: auto;
+        justify-self: auto;
+    }
+
+    .contato-container-novo {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
