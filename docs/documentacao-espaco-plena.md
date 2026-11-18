@@ -17,9 +17,11 @@ O site do Espaço Plena é uma landing page institucional de página única (sin
 **Arquivos do projeto:**
 ```
 espacoplena/
+├── README.md                             ← início rápido e publicação
 ├── netlify.toml                          ← configuração de publicação
 ├── docs/
-│   └── documentacao-espaco-plena.md       ← guia de manutenção
+│   ├── documentacao-espaco-plena.md       ← guia de manutenção
+│   └── paleta-cores-tipografia.md         ← inventário visual
 └── public/                               ← conteúdo publicado no Netlify
     ├── index.html                        ← estrutura e conteúdo
     ├── _headers                          ← cabeçalhos HTTP
@@ -27,15 +29,19 @@ espacoplena/
         ├── css/
         │   └── style.css                 ← visual e responsividade
         ├── js/
-        │   └── script.js                 ← interatividade e contatos
+        │   └── script.js                 ← estado visual do cabeçalho
         └── img/
-            └── brand/
-                └── logo.png              ← logo, favicon e preview provisórios
+            ├── brand/
+            │   └── logo.png              ← logo e favicon provisório
+            └── hero/
+                └── hero-bg.webp          ← fotografia local do hero
 ```
 
 A pasta `public/` contém os arquivos entregues ao navegador. A documentação fica fora da pasta publicada e não é incluída no deploy do site. Isso não torna o documento privado no GitHub: se o repositório for público, seu conteúdo também poderá ser consultado lá.
 
-As imagens do hero e da equipe continuam hospedadas no Unsplash. As pastas `assets/img/hero/` e `assets/img/equipe/` serão criadas quando houver imagens locais; não há arquivos vazios para recursos futuros.
+A equipe usa iniciais decorativas enquanto as fotos reais autorizadas não estão disponíveis. As iniciais não são apresentadas como fotografias. Não há retratos de banco de imagens associados às profissionais.
+
+A fotografia do hero está em `public/assets/img/hero/hero-bg.webp`. Seu caminho no CSS é relativo ao arquivo de estilos: `url('../img/hero/hero-bg.webp')`.
 
 ---
 
@@ -47,37 +53,26 @@ O documento segue estrutura semântica com 6 seções principais:
 
 | Seção | ID | Função |
 |---|---|---|
-| Header fixo | — | Navegação e logo |
+| Cabeçalho | — | Navegação e logo |
 | Hero | `#home` | Apresentação e CTA principal |
 | Sobre | `#sobre` | Propósito e missão |
 | Serviços | `#servicos` | 4 cards de serviços |
 | Equipe | `#equipe` | 5 cards de profissionais |
-| Contato | `#contato` | Formulário de leads + canais |
+| Contato | `#contato` | Informações e canais diretos de atendimento |
 
 **Recursos de SEO e metadados presentes:**
 - `<meta name="description">` para indexação
-- Open Graph tags para preview em redes sociais
+- Open Graph básico: título, descrição, tipo e localidade; imagem e URL absolutas aguardam o domínio definitivo
 - Schema.org JSON-LD (`HealthAndBeautyBusiness`) para dados estruturados no Google
 - `<link rel="icon">` usando a logo existente como favicon provisório
 
-A logo do cabeçalho e o favicon usam `assets/img/brand/logo.png`. Os campos `og:image` e `image` do Schema.org apontam provisoriamente para `https://seusite.com.br/assets/img/brand/logo.png`.
+A logo do cabeçalho e o favicon usam `assets/img/brand/logo.png`. Metadados dependentes de uma URL absoluta devem ser preenchidos quando o domínio definitivo estiver confirmado; não use um domínio de exemplo na versão pública.
 
-> ⚠️ **Pendências no HTML:** substituir `https://seusite.com.br` pela URL real em todos os metadados e Schema.org, preencher o `@id` com a URL definitiva e atualizar o endereço do Schema.org. Criar um favicon dedicado e uma imagem Open Graph própria quando os materiais estiverem disponíveis.
+> **Pendências de conteúdo:** confirmar domínio, nomes, especialidades e materiais da equipe. Quando o domínio estiver definido, incluir as URLs definitivas de compartilhamento e do Schema.org. Criar um favicon dedicado e uma imagem Open Graph própria. O endereço e os horários dos dados estruturados devem refletir o conteúdo visível.
 
 ### 2.2 CSS (`public/assets/css/style.css`)
 
-O CSS é organizado em um design system baseado em **CSS Custom Properties** definidas no `:root`. Toda a paleta pode ser alterada modificando apenas as variáveis iniciais.
-
-**Paleta oficial:**
-```css
---bg-principal:   #3a5343   /* Verde Oliva Fechado */
---bg-cards:       #2d4134   /* Verde Escuro para cards */
---cor-acento:     #faf8f5   /* Off-white para títulos */
---cor-acento-claro: #4a6b53 /* Verde Sálvia Intermediário */
---texto-principal:#faf8f5   /* Off-white para texto */
---texto-cinza:    #cbd5ce   /* Cinza-verde de suporte */
---cor-icone:      #d4af37   /* Dourado Champagne */
-```
+O CSS usa **CSS Custom Properties** definidas no `:root` para paleta, tipografia e estados. Consulte o [inventário de paleta e tipografia](paleta-cores-tipografia.md) para os valores implementados e contrastes; atualize esse documento quando os tokens mudarem.
 
 **Tipografia:**
 ```css
@@ -87,25 +82,20 @@ O CSS é organizado em um design system baseado em **CSS Custom Properties** def
 
 **Breakpoints de responsividade:**
 ```
-≤ 900px  → equipe 2 colunas, formulário empilhado
-≤ 768px  → navbar empilhado, seções com padding reduzido
+≤ 900px  → equipe 2 colunas
+≤ 768px  → navbar empilhado, contato em 1 coluna, seções com padding reduzido
 ≤ 600px  → equipe 1 coluna
 ```
 
-Quando houver uma imagem local para o hero em `public/assets/img/hero/hero-bg.webp`, o caminho dentro deste CSS será `url('../img/hero/hero-bg.webp')`. A imagem externa atual permanece até essa substituição.
+A equipe usa flexbox com quebra de linha e centralização, sem regras `nth-child` para posicionar profissionais. A seção de contato usa um contêiner centralizado de até 900px; endereço, e-mail e horários ficam em três colunas em telas maiores e em uma coluna até 768px, com os links de ação abaixo. O cabeçalho fica aderente ao topo em telas maiores e volta ao fluxo normal em até 600px, liberando espaço durante a rolagem no celular. A navegação permite quebra de linha em todas as larguras.
+
+O foco de teclado é explícito, os links e botões têm áreas de interação ampliadas e as animações respeitam `prefers-reduced-motion`. Os botões de contato têm tamanho tipográfico definido. O inventário visual deve ser conferido junto ao CSS após mudanças de cores ou escala.
 
 ### 2.3 JavaScript (`public/assets/js/script.js`)
 
-O script é organizado em 3 blocos funcionais:
+O script cuida apenas do estado visual do cabeçalho. Ele alterna a classe `.is-scrolled` conforme a rolagem; cores e sombra continuam definidas no CSS. A altura medida do cabeçalho atualiza `--header-height` para ajustar a posição das âncoras.
 
-**Bloco 1 — Ofuscação de contatos (IIFE)**
-Monta número de WhatsApp, link do Instagram, e-mail e URL do Maps em tempo de execução via arrays fragmentados. A ofuscação não protege segredos: esses contatos podem ser recuperados no JavaScript, e o telefone também consta no Schema.org do HTML.
-
-**Bloco 2 — Formulário de leads**
-Ao submeter, captura nome, telefone e serviço, monta uma mensagem formatada e abre o WhatsApp com o texto pré-preenchido. Não depende de servidor. A pessoa ainda precisa enviar a mensagem no WhatsApp; o site não recebe confirmação desse envio nem armazena os dados.
-
-**Bloco 3 — Scroll tracking**
-Monitora a rolagem da página e aplica sombra e cor sólida ao header quando o usuário rola mais de 50px, melhorando legibilidade do menu.
+Os contatos são links reais no HTML e não dependem do script para funcionar. A pessoa abre o WhatsApp e escreve sua mensagem diretamente na conversa. O site não coleta dados por formulário, não recebe confirmação de envio e não confirma agendamentos.
 
 ---
 
@@ -115,10 +105,10 @@ Monitora a rolagem da página e aplica sombra e cor sólida ao header quando o u
 
 | Medida | Como foi aplicada |
 |---|---|
-| Ofuscação de contatos | Dados fragmentados em arrays e montados via JS; não impede a leitura dos contatos |
-| `noopener,noreferrer` | Aplicado em todos os `window.open()` |
+| Contatos explícitos | URLs de contato públicas no HTML, sem ofuscação como suposta proteção de segredos |
+| `rel="noopener noreferrer"` | Aplicado aos links externos que abrem em nova aba |
 | Cabeçalhos HTTP (`public/_headers`) | X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy |
-| Sem `console.log` em produção | Removido para não expor informações no DevTools |
+| Contato direto | A página fornece links de atendimento e não coleta ou persiste dados por formulário |
 | `aria-hidden` nos ícones decorativos | Evita leitura desnecessária por leitores de tela |
 
 ### 3.2 Conteúdo do arquivo `public/_headers` (Netlify)
@@ -134,28 +124,26 @@ O arquivo deve permanecer na raiz da pasta publicada, que neste projeto é `publ
 
 ### 3.3 O que ainda falta (próximas etapas)
 
-- **HTTPS:** garantido automaticamente pelo Netlify ao publicar — nenhuma ação necessária
-- **SRI no Font Awesome:** adicionar `integrity` e `crossorigin` ao link do CDN (hash disponível em cdnjs.com)
-- **Subresource Integrity:** protege contra CDN comprometido
-- **Rate limiting do formulário:** atualmente não há limite de envios — considerar debounce ou CAPTCHA se houver abuso
+- **HTTPS:** conferir o certificado e as configurações do domínio no Netlify após a publicação.
+- **Dependências externas:** manter os recursos de terceiros revisados; ao usar CDN, conferir integridade e disponibilidade.
+- **Recebimento de dados:** se houver uma API de agendamento ou armazenamento de leads no futuro, projetar validação no servidor, controles de abuso e tratamento adequado dos dados. A validação do navegador não substitui essas medidas.
 
 ---
 
 ## 4. Overview Técnico — Pontos Fortes e Fracos
 
 ### Pontos fortes
-- Zero dependência de servidor — site completamente estático, custo zero de hospedagem
+- Site estático, sem servidor de aplicação ou banco de dados próprios
 - Design system sustentável com variáveis CSS — manutenção fácil
-- Formulário de leads funcional sem backend
-- Segurança acima da média para sites do segmento
-- Responsivo em 3 breakpoints
+- Contato direto com WhatsApp, Instagram, Maps e e-mail
+- Links de contato disponíveis sem JavaScript
+- Layout adaptável, foco visível e preferência por movimento reduzido
 - Metadados de SEO e Schema.org presentes
 
 ### Pontos que podem ser evoluídos
-- Imagens da equipe são placeholders do Unsplash — substituir por fotos reais
-- Menu mobile sem hambúrguer — navegação difícil em telas pequenas
-- Fonte do título (Georgia) é genérica — a identidade visual usa tipografia personalizada
-- Imagem de fundo do hero vem de CDN externo sem fallback
+- Fotos reais da equipe ainda precisam ser fornecidas e autorizadas
+- Domínio definitivo e imagem de compartilhamento ainda precisam ser confirmados
+- Fontes são locais ao sistema; a aparência pode variar conforme os fallbacks disponíveis
 - Não há analytics implementado (Google Analytics, Clarity, etc.)
 
 ---
@@ -163,11 +151,11 @@ O arquivo deve permanecer na raiz da pasta publicada, que neste projeto é `publ
 ## 5. Dicas de Futuras Melhorias Técnicas
 
 **Curto prazo (antes ou logo após o lançamento):**
-- Substituir as fotos placeholder da equipe por fotos reais dos profissionais
-- Preencher o endereço e URL reais em todos os metadados e Schema.org
-- Criar um favicon dedicado e uma imagem `public/assets/img/brand/og-image.jpg` (1200×630px) para compartilhamento, substituindo os usos provisórios da logo
+- Substituir as iniciais por fotos reais autorizadas das profissionais quando os arquivos estiverem disponíveis
+- Confirmar o domínio definitivo e manter endereço e horários sincronizados no conteúdo e no Schema.org
+- Criar um favicon dedicado e uma imagem `public/assets/img/brand/og-image.jpg` (1200×630px) para compartilhamento
 - Adicionar `public/robots.txt` e `public/sitemap.xml` quando o domínio definitivo estiver definido
-- Adicionar menu hambúrguer no mobile
+- Repetir as verificações de navegação, teclado e layout após alterações de conteúdo
 - Implementar Google Analytics 4 ou Microsoft Clarity (mapa de calor gratuito) para entender como os visitantes usam o site
 
 **Médio prazo:**
@@ -186,18 +174,18 @@ O arquivo deve permanecer na raiz da pasta publicada, que neste projeto é `publ
 
 ## 6. Dicas de Vendas e Atendimento ao Cliente
 
-### 6.1 Aproveitando o formulário de leads
+### 6.1 Atendimento via WhatsApp
 
-O formulário abre o WhatsApp com uma mensagem formatada. Após a pessoa enviá-la, a clínica pode aproveitar o contato da seguinte forma:
+Os links do site abrem a conversa no WhatsApp, onde a pessoa escreve sua mensagem. Após receber o contato, a clínica pode conduzir o atendimento da seguinte forma:
 
 - **Responda em menos de 15 minutos** — estudos mostram que leads respondidos nesse prazo têm taxa de conversão até 7x maior
-- **Não responda só "Olá"** — a mensagem já vem com nome, serviço e contato; use esses dados: *"Olá Beatriz! Vi seu interesse em Pilates, temos horários disponíveis esta semana. Posso te contar mais sobre como funciona?"*
+- **Ajude a pessoa a explicar sua necessidade** — pergunte como prefere ser chamada e qual serviço deseja conhecer: *"Olá! Como podemos chamar você e em qual serviço tem interesse?"*
 - **Crie um script de atendimento** para cada serviço (Estética, Fisioterapia, Pilates, Massoterapia) — padroniza a qualidade e acelera o atendimento
 
 ### 6.2 O site como ferramenta de vendas
 
 - A seção de equipe com profissionais nomeados gera **confiança antes do primeiro contato** — mantenha as fotos e descrições atualizadas
-- O botão "Agendar Consulta" no hero é o CTA principal — se possível, ofereça uma **avaliação gratuita** como gancho inicial
+- O CTA principal do hero deve explicar que a próxima etapa é uma conversa no WhatsApp; mantenha a promessa alinhada ao atendimento oferecido
 - O endereço e o botão Google Maps ajudam clientes a confirmar a localização antes de ir, reduzindo desistências
 
 ### 6.3 Usando o Instagram como funil
@@ -212,21 +200,16 @@ O site já linka para o Instagram. Para fechar o ciclo:
 
 - Peça avaliações no **Google Meu Negócio** após cada atendimento — impacta diretamente no ranqueamento local
 - Crie um **programa de indicação**: cliente que indica ganha desconto na próxima sessão
-- Salve os dados dos leads do formulário em uma planilha para acompanhamento — atualmente os dados chegam só pelo WhatsApp e podem se perder
+- Organize os contatos recebidos pelos canais de atendimento para acompanhar retornos e evitar esquecimentos
 
 ---
 
 ## 7. Guia de Manutenção
 
 ### Atualizar informações de contato
-Os contatos de WhatsApp, Instagram, Maps e e-mail são montados no arquivo `public/assets/js/script.js`, nas linhas iniciais da IIFE. O número de WhatsApp também aparece no bloco do formulário nesse script e no campo `telephone` do Schema.org em `public/index.html`; mantenha as três ocorrências sincronizadas. Esses contatos são públicos, e a ofuscação não os torna secretos.
+Edite os `href` dos links de WhatsApp, Instagram, Maps e e-mail em `public/index.html`. Atualize o texto visível quando necessário. Os contatos são públicos.
 
-```js
-const waParts  = ['55', '98', '970', '285', '212']; // número do WhatsApp
-const igParts  = ['espacop', 'lenaslz'];             // usuário do Instagram
-const emParts  = ['espacoplenaslz', 'gmail.com'];   // e-mail
-const mapsUrl  = 'https://...';                     // link do Google Maps
-```
+Os links de WhatsApp devem usar o formato `https://wa.me/NUMERO`, com código do país e número sem pontuação. Ao alterar o contato, revise o link do hero, o link `#btn-whatsapp-contato` e o campo `telephone` do Schema.org. Os destinos não são definidos no JavaScript.
 
 ### Atualizar horários
 Dois lugares precisam ser atualizados em sincronia:
@@ -234,7 +217,7 @@ Dois lugares precisam ser atualizados em sincronia:
 2. Schema.org (`public/index.html`) — bloco `<script type="application/ld+json">`
 
 ### Adicionar ou remover profissionais da equipe
-No `public/index.html`, cada profissional é um `.equipe-card` dentro de `.equipe-grid`. Ao ter 5 profissionais, o CSS posiciona os cards 4 e 5 centralizados na segunda linha automaticamente. Se mudar para 4 ou 6, remova as regras `nth-child(4)` e `nth-child(5)` do `public/assets/css/style.css`.
+No `public/index.html`, cada profissional é um `.equipe-card` dentro de `.equipe-grid`. Revise o nome e a especialidade no conteúdo e atualize as iniciais decorativas quando houver troca de profissional. Ao adicionar fotos reais, use arquivos locais autorizados e textos alternativos coerentes; não associe retratos genéricos a pessoas reais. Confira o alinhamento e a quebra dos cards em cada largura após mudar a quantidade.
 
 ### Atualizar a paleta de cores
 Todas as cores estão nas variáveis no início do `public/assets/css/style.css`. Alterar apenas o bloco `:root` atualiza o visual inteiro.
@@ -253,7 +236,8 @@ Após mover arquivos ou alterar caminhos, confira:
 
 - Página inicial, logo e favicon carregando; sem respostas 404 para CSS, JavaScript e imagens locais na aba de rede do navegador.
 - Layout em desktop e celular, navegação entre seções e comportamento do cabeçalho ao rolar.
-- Botões de contato abrindo os destinos esperados e formulário preenchendo a mensagem do WhatsApp corretamente.
+- Links de WhatsApp, Instagram, Maps e e-mail abrindo os destinos esperados.
+- Links de contato disponíveis sem JavaScript; navegação por teclado, foco e zoom sem perda de conteúdo.
 - Ausência de erros no console do navegador.
 - URL `/docs/documentacao-espaco-plena.md` retornando 404 ao servir `public/`.
 - Metadados e URLs do domínio revisados antes da publicação definitiva; cabeçalhos HTTP verificados no Netlify, pois o servidor Python não interpreta `_headers`.
@@ -276,7 +260,7 @@ Após mover arquivos ou alterar caminhos, confira:
 
 5. Habilite os Deploy Previews para revisar Pull Requests direcionados à `main` antes de integrar alterações.
 6. Após o deploy, confira os arquivos, links e cabeçalhos HTTP. O Netlify lê `public/_headers` como arquivo de configuração da pasta publicada.
-7. Configure o domínio próprio e siga as instruções de DNS e HTTPS apresentadas pelo Netlify. Atualize depois as URLs provisórias em `public/index.html`.
+7. Configure o domínio próprio e siga as instruções de DNS e HTTPS apresentadas pelo Netlify. Quando o domínio estiver confirmado, adicione as URLs definitivas aos metadados e ao Schema.org em `public/index.html`.
 
 Estas são instruções de configuração; a presença do `netlify.toml` no repositório não comprova que a integração remota ou os Deploy Previews já foram habilitados.
 
@@ -303,4 +287,4 @@ O fluxo segue o [GitHub Flow](https://docs.github.com/en/get-started/using-githu
 
 ---
 
-*Documentação gerada em 9 de julho de 2026. Revisada em 18 de novembro de 2026 para a organização em `public/` e `docs/` e o fluxo de branches. Atualizar sempre que houver mudanças relevantes na estrutura ou nos dados do projeto.*
+*Documentação gerada em 9 de julho de 2026. Revisada em 18 de novembro de 2026 para a organização em `public/` e `docs/`, o fluxo de branches e as melhorias de interface e contato. Atualizar sempre que houver mudanças relevantes na estrutura ou nos dados do projeto.*
