@@ -187,7 +187,7 @@
         </div>
         <div class="team-grid">
           <article class="team-card">
-            <div class="team-picture"><img src="https://images.unsplash.com/photo-1594824813573-246434e3b96f?q=80&w=500&h=560&fit=crop" loading="lazy" alt="Retrato ilustrativo para o perfil de Ivana Silva"></div>
+            <div class="team-picture team-picture-placeholder" role="img" aria-label="Foto de Ivana Silva ainda não disponível"><span aria-hidden="true">IS</span></div>
             <div class="team-info"><h3>Dra. Ivana Silva</h3><span class="team-role">Fisioterapia Dermato-Funcional</span><p>Atuação em rejuvenescimento facial, peeling químico, microagulhamento e pós-operatório.</p></div>
           </article>
           <article class="team-card">
@@ -223,10 +223,11 @@
             <span class="contact-form-kicker">SOLICITE SEU ATENDIMENTO</span>
             <h3>Seu próximo passo começa aqui.</h3>
             <form id="form-agendamento" class="lead-form">
-              <div class="form-group"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" autocomplete="name" maxlength="100" placeholder="Como podemos chamar você?" required></div>
-              <div class="form-group"><label for="telefone">WhatsApp com DDD</label><input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" maxlength="18" placeholder="(98) 99999-9999" aria-describedby="telefone-ajuda" required><small id="telefone-ajuda">Informe um número brasileiro com DDD.</small></div>
-              <div class="form-group"><label for="servico">Serviço de interesse</label><select id="servico" name="servico" required><option value="" disabled selected>Selecione um serviço</option><option value="estetica">Estética Avançada</option><option value="fisioterapia">Fisioterapia</option><option value="pilates">Pilates</option><option value="massoterapia">Massoterapia</option></select></div>
+              <div class="form-group"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" autocomplete="name" minlength="2" maxlength="100" placeholder="Como podemos chamar você?" aria-describedby="form-feedback" required></div>
+              <div class="form-group"><label for="telefone">WhatsApp com DDD</label><input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" maxlength="22" placeholder="(98) 99999-9999" aria-describedby="telefone-ajuda form-feedback" required><small id="telefone-ajuda">Informe um número brasileiro com DDD. Você também pode incluir +55.</small></div>
+              <div class="form-group"><label for="servico">Serviço de interesse</label><select id="servico" name="servico" aria-describedby="form-feedback" required><option value="" disabled selected>Selecione um serviço</option><option value="estetica">Estética Avançada</option><option value="fisioterapia">Fisioterapia</option><option value="pilates">Pilates</option><option value="massoterapia">Massoterapia</option></select></div>
               <p class="form-feedback" id="form-feedback" role="status" aria-live="polite" hidden></p>
+              <a class="text-link form-whatsapp-link" id="form-whatsapp-link" target="_blank" rel="noopener noreferrer" hidden>Abrir conversa no WhatsApp <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
               <button class="btn btn-primary btn-full" type="submit"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Conversar pelo WhatsApp <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
               <p class="form-privacy"><i class="fa-solid fa-lock" aria-hidden="true"></i> Ao continuar, o WhatsApp será aberto com sua mensagem. Este site não armazena seus dados.</p>
             </form>
