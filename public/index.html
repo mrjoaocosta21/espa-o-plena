@@ -1,214 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espaço Plena | Saúde e Estética em São Luís - MA</title>
-
-    <!-- SEO -->
-    <meta name="description" content="Espaço Plena: Clínica de saúde, estética, fisioterapia e pilates em São Luís - MA. Agende a sua avaliação personalizada.">
-
-    <!-- Open Graph (preview ao compartilhar no WhatsApp/Instagram) -->
-    <meta property="og:title" content="Espaço Plena | Saúde e Estética">
-    <meta property="og:description" content="Saúde, estética, fisioterapia e pilates em São Luís. Converse com a equipe pelo WhatsApp.">
-    <!-- Adicionar og:url, og:image e canonical absolutos quando o domínio for definido. -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-
-    <!-- Logo usada como favicon até a criação de um ícone dedicado. -->
-    <link rel="icon" type="image/png" href="assets/img/brand/logo.png">
-
-    <!-- Schema.org: dados estruturados para o Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HealthAndBeautyBusiness",
-      "name": "Espaço Plena",
-      "telephone": "+5598970285212",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rua Um, quadra 03, número 17, Planalto Vinhais 1",
-        "addressLocality": "São Luís",
-        "addressRegion": "MA",
-        "postalCode": "65074-875",
-        "addressCountry": "BR"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F9F8F2">
+  <meta name="description" content="Espaço Plena, em São Luís - MA: estética avançada, fisioterapia, Pilates e massoterapia. Conheça nosso espaço e solicite atendimento pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Espaço Plena | Saúde e Bem-Estar">
+  <meta property="og:description" content="Um espaço pensado para acolher, cuidar e promover o seu bem-estar em São Luís - MA.">
+  <!-- Adicione og:image e og:url quando houver uma URL pública e imagem oficial. -->
+  <title>Espaço Plena | Saúde e Bem-Estar em São Luís</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Dados presentes no projeto original. Confirme endereço, horário e profissionais antes de publicar. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "Espaço Plena",
+    "description": "Espaço de saúde, estética, fisioterapia, Pilates e massoterapia em São Luís - MA.",
+    "telephone": "+5598970285212",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Um, quadra 03, número 17, Planalto Vinhais I",
+      "addressLocality": "São Luís",
+      "addressRegion": "MA",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "21:00"
       },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "07:00",
-          "closes": "21:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "08:00",
-          "closes": "12:00"
-        }
-      ]
-    }
-    </script>
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous">
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "12:00"
+      }
+    ]
+  }
+  </script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <header>
-        <nav class="navbar" aria-label="Navegação principal">
-            <a href="#home" class="logo">
-                <img src="assets/img/brand/logo.png" alt="Logo Espaço Plena" width="861" height="198">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Espaço</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#equipe">Equipe</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="site-header" id="topo">
+    <nav class="navbar container" aria-label="Navegação principal">
+      <a class="brand" href="#home" aria-label="Espaço Plena, voltar ao início">
+        <span class="brand-upper">espaço</span>
+        <span class="brand-name">plena<span class="brand-leaf" aria-hidden="true">✦</span></span>
+        <span class="brand-tag">SAÚDE E BEM-ESTAR</span>
+      </a>
 
-    <main id="conteudo" tabindex="-1">
-        <!-- SEÇÃO HERO -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <span class="subtitle">Cuidado em São Luís, MA</span>
-                <h1>Espaço Plena</h1>
-                <p class="slogan">Saúde, estética, fisioterapia e pilates para cuidar de você.</p>
-                <div class="hero-buttons">
-                    <a id="btn-whatsapp-hero" class="btn primary" href="https://wa.me/5598970285212" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Conversar no WhatsApp<span class="sr-only"> (abre em nova aba)</span>
-                    </a>
-                    <a href="#servicos" class="btn secondary">Conhecer Serviços</a>
-                </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#sobre">O Espaço</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li class="nav-action-mobile"><a href="#contato">Agendar atendimento <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></li>
+      </ul>
+
+      <a class="header-cta" href="#contato">Agendar atendimento <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-links" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-bloom" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-line"></span> ESPAÇO PLENA · SÃO LUÍS</span>
+          <h1 id="hero-title">Seu bem-estar merece <em>um espaço especial.</em></h1>
+          <p class="hero-description">Cuidar de si é um gesto de carinho. Aqui, saúde, estética e acolhimento se encontram para fazer você se sentir bem — de dentro para fora.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" id="btn-whatsapp-hero" type="button"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Agendar atendimento <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+            <a href="#servicos" class="btn btn-outline">Conheça nossos serviços <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+          </div>
+          <div class="hero-note"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Seu momento de cuidado em São Luís, Maranhão.</div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo-frame">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1300&auto=format&fit=crop" alt="Ambiente de relaxamento com elementos naturais — imagem ilustrativa" loading="eager" fetchpriority="high" decoding="async">
+          </div>
+          <div class="hero-photo-badge"><i class="fa-solid fa-leaf" aria-hidden="true"></i><span>um tempo<br><strong>para você</strong></span></div>
+          <div class="hero-curve" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values-strip" aria-label="O que valorizamos">
+      <div class="container values-inner">
+        <div class="value"><i class="fa-regular fa-heart" aria-hidden="true"></i><span>Acolhimento</span></div>
+        <span class="value-divider" aria-hidden="true"></span>
+        <div class="value"><i class="fa-solid fa-seedling" aria-hidden="true"></i><span>Equilíbrio</span></div>
+        <span class="value-divider" aria-hidden="true"></span>
+        <div class="value"><i class="fa-regular fa-sun" aria-hidden="true"></i><span>Bem-estar</span></div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section about" aria-labelledby="sobre-title">
+      <div class="container about-layout">
+        <div class="about-accent" aria-hidden="true">
+          <span class="about-orbit about-orbit-one"></span>
+          <span class="about-orbit about-orbit-two"></span>
+          <i class="fa-solid fa-leaf"></i>
+          <div class="about-accent-text">cuidado que<br><em>floresce</em></div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow eyebrow-small">SOBRE O NOSSO ESPAÇO</span>
+          <h2 id="sobre-title">Um refúgio de calma em meio à rotina.</h2>
+          <p>Localizado em <strong>São Luís do Maranhão</strong>, o Espaço Plena nasceu com a missão de oferecer um refúgio de autocuidado. Unimos ciência, saúde e estética para proporcionar tratamentos personalizados que respeitam a individualidade de cada corpo.</p>
+          <p>Acreditamos que a beleza é reflexo do equilíbrio interno. Nossa equipe busca oferecer atendimento acolhedor, conforto e segurança em cada etapa da sua experiência.</p>
+          <a class="text-link" href="#contato">Venha conhecer o Espaço Plena <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow eyebrow-small">O CUIDADO QUE VOCÊ MERECE</span>
+          <h2 id="servicos-title">Nossos <em>serviços</em></h2>
+          <p>Cuidados pensados para promover saúde, equilíbrio e bem-estar em diferentes momentos da sua vida.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-number">01 / CUIDADO E BELEZA</span>
+            <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+            <h3>Estética Avançada</h3>
+            <p>Procedimentos faciais e corporais voltados para o cuidado com a pele, rejuvenescimento e valorização da sua beleza natural.</p>
+            <a href="#contato" class="service-link" data-service="estetica" aria-label="Tenho interesse em Estética Avançada">Tenho interesse <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">02 / MOVIMENTO E SAÚDE</span>
+            <div class="service-icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></div>
+            <h3>Fisioterapia</h3>
+            <p>Atendimento orientado à reabilitação física, alívio de dores e melhora da mobilidade para mais autonomia no dia a dia.</p>
+            <a href="#contato" class="service-link" data-service="fisioterapia" aria-label="Tenho interesse em Fisioterapia">Tenho interesse <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">03 / CORPO E EQUILÍBRIO</span>
+            <div class="service-icon"><i class="fa-solid fa-person-walking" aria-hidden="true"></i></div>
+            <h3>Pilates</h3>
+            <p>Prática personalizada para fortalecimento muscular, flexibilidade, postura e conexão entre corpo e mente.</p>
+            <a href="#contato" class="service-link" data-service="pilates" aria-label="Tenho interesse em Pilates">Tenho interesse <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">04 / RELAXAMENTO</span>
+            <div class="service-icon"><i class="fa-solid fa-spa" aria-hidden="true"></i></div>
+            <h3>Massoterapia</h3>
+            <p>Massagens relaxantes e terapêuticas que ajudam a aliviar tensões, reduzir o estresse e proporcionar momentos de pausa.</p>
+            <a href="#contato" class="service-link" data-service="massoterapia" aria-label="Tenho interesse em Massoterapia">Tenho interesse <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="interlude" aria-label="Mensagem do Espaço Plena">
+      <div class="container interlude-content">
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+        <p>O seu tempo de se cuidar <em>começa aqui.</em></p>
+        <a class="btn btn-light" href="#contato">Quero agendar uma avaliação <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </section>
+
+    <section class="section team" id="equipe" aria-labelledby="equipe-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow eyebrow-small">CUIDADO FEITO POR PESSOAS</span>
+          <h2 id="equipe-title">Especialistas em <em>você</em></h2>
+          <p>Uma equipe multidisciplinar para acompanhar você em sua jornada de saúde e bem-estar.</p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="team-picture"><img src="https://images.unsplash.com/photo-1594824813573-246434e3b96f?q=80&w=500&h=560&fit=crop" loading="lazy" alt="Retrato ilustrativo para o perfil de Ivana Silva"></div>
+            <div class="team-info"><h3>Dra. Ivana Silva</h3><span class="team-role">Fisioterapia Dermato-Funcional</span><p>Atuação em rejuvenescimento facial, peeling químico, microagulhamento e pós-operatório.</p></div>
+          </article>
+          <article class="team-card">
+            <div class="team-picture"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=500&h=560&fit=crop" loading="lazy" alt="Retrato ilustrativo para o perfil de Jéssica Costa"></div>
+            <div class="team-info"><h3>Dra. Jéssica Costa</h3><span class="team-role">Fisioterapia Clínica e Quiropraxia</span><p>Atuação em reabilitação ortopédica, dores na coluna, postura e ajustes quiropráticos.</p></div>
+          </article>
+          <article class="team-card">
+            <div class="team-picture"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&h=560&fit=crop" loading="lazy" alt="Retrato ilustrativo para o perfil de Beatriz Melo"></div>
+            <div class="team-info"><h3>Dra. Beatriz Melo</h3><span class="team-role">Instrutora de Pilates Clínico</span><p>Atuação em movimento consciente, fortalecimento, reabilitação dinâmica e flexibilidade.</p></div>
+          </article>
+          <article class="team-card">
+            <div class="team-picture"><img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?q=80&w=500&h=560&fit=crop" loading="lazy" alt="Retrato ilustrativo para o perfil de Aúrea Rodrigues"></div>
+            <div class="team-info"><h3>Dra. Aúrea Rodrigues</h3><span class="team-role">Massoterapia Terapêutica</span><p>Atuação em liberação miofascial, massagens relaxantes, drenagem linfática e reflexologia.</p></div>
+          </article>
+          <article class="team-card">
+            <div class="team-picture"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=500&h=560&fit=crop" loading="lazy" alt="Retrato ilustrativo para o perfil de Mariana Goulart"></div>
+            <div class="team-info"><h3>Dra. Mariana Goulart</h3><span class="team-role">Biomédica Esteta</span><p>Atuação em procedimentos estéticos injetáveis, preenchimento facial e bioestimuladores.</p></div>
+          </article>
+        </div>
+        <p class="team-disclaimer">Fotografias ilustrativas. Antes da publicação, substitua pelas fotos autorizadas e confirme os dados profissionais.</p>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato" aria-labelledby="contato-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow eyebrow-small">ESTAMOS AQUI PARA VOCÊ</span>
+          <h2 id="contato-title">Vamos cuidar de <em>você?</em></h2>
+          <p>Conte-nos sobre o atendimento que procura. Nossa equipe poderá orientar você pelo WhatsApp.</p>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-form-panel">
+            <span class="contact-form-kicker">SOLICITE SEU ATENDIMENTO</span>
+            <h3>Seu próximo passo começa aqui.</h3>
+            <form id="form-agendamento" class="lead-form">
+              <div class="form-group"><label for="nome">Nome completo</label><input type="text" id="nome" name="nome" autocomplete="name" maxlength="100" placeholder="Como podemos chamar você?" required></div>
+              <div class="form-group"><label for="telefone">WhatsApp com DDD</label><input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" maxlength="18" placeholder="(98) 99999-9999" aria-describedby="telefone-ajuda" required><small id="telefone-ajuda">Informe um número brasileiro com DDD.</small></div>
+              <div class="form-group"><label for="servico">Serviço de interesse</label><select id="servico" name="servico" required><option value="" disabled selected>Selecione um serviço</option><option value="estetica">Estética Avançada</option><option value="fisioterapia">Fisioterapia</option><option value="pilates">Pilates</option><option value="massoterapia">Massoterapia</option></select></div>
+              <p class="form-feedback" id="form-feedback" role="status" aria-live="polite" hidden></p>
+              <button class="btn btn-primary btn-full" type="submit"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Conversar pelo WhatsApp <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+              <p class="form-privacy"><i class="fa-solid fa-lock" aria-hidden="true"></i> Ao continuar, o WhatsApp será aberto com sua mensagem. Este site não armazena seus dados.</p>
+            </form>
+          </div>
+          <aside class="contact-side" aria-label="Informações de contato">
+            <div class="contact-side-top">
+              <span class="eyebrow eyebrow-small">VENHA NOS VISITAR</span>
+              <h3>Será um prazer receber você.</h3>
+              <p>O Espaço Plena está em São Luís, Maranhão. Fale com a equipe para informações sobre atendimentos.</p>
             </div>
-        </section>
-
-        <!-- SEÇÃO SOBRE -->
-        <section id="sobre" class="sobre">
-            <div class="sobre-container">
-                <h2>Nosso Propósito</h2>
-                <p>Localizado em <strong>São Luís do Maranhão</strong>, o Espaço Plena nasceu com a missão de oferecer um refúgio de autocuidado em meio à rotina. Unimos ciência, saúde e estética para proporcionar tratamentos personalizados que respeitam a individualidade de cada corpo.</p>
-                <p>Aqui, a beleza é vista como um reflexo do equilíbrio interno. Nossa equipe está pronta para receber você com total conforto, segurança e as tecnologias mais modernas do mercado de saúde e estética.</p>
+            <div class="contact-items">
+              <div class="contact-item"><span class="contact-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></span><div><strong>Onde estamos</strong><span>Rua Um, quadra 03, nº 17<br>Planalto Vinhais I · São Luís / MA</span></div></div>
+              <div class="contact-item"><span class="contact-icon"><i class="fa-regular fa-clock" aria-hidden="true"></i></span><div><strong>Horários</strong><span>Segunda a sexta: 7h às 21h<br>Sábado: 8h às 12h</span></div></div>
+              <div class="contact-item"><span class="contact-icon"><i class="fa-regular fa-envelope" aria-hidden="true"></i></span><div><strong>E-mail</strong><span id="txt-email">Carregando contato...</span></div></div>
             </div>
-        </section>
-
-        <!-- SEÇÃO SERVIÇOS -->
-        <section id="servicos" class="servicos">
-            <h2>Nossos Serviços</h2>
-            <p class="section-desc">Tratamentos completos para cuidar de você de forma integral.</p>
-            <div class="servicos-grid">
-                <div class="servico-card">
-                    <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
-                    <h3>Estética Avançada</h3>
-                    <p>Procedimentos faciais e corporais modernos utilizando tecnologia de ponta para rejuvenescimento, tratamento de manchas, gordura localizada e realce da sua beleza natural.</p>
-                </div>
-                <div class="servico-card">
-                    <div class="card-icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></div>
-                    <h3>Fisioterapia</h3>
-                    <p>Atendimento focado na reabilitação física, alívio de dores crônicas e melhora da sua mobilidade, garantindo mais qualidade de vida e funcionalidade para o seu dia a dia.</p>
-                </div>
-                <div class="servico-card">
-                    <div class="card-icon"><i class="fa-solid fa-child-reaching" aria-hidden="true"></i></div>
-                    <h3>Pilates</h3>
-                    <p>Aulas personalizadas para fortalecimento muscular, correção postural, flexibilidade e conexão entre mente e corpo, respeitando o ritmo e os limites de cada aluno.</p>
-                </div>
-                <div class="servico-card">
-                    <div class="card-icon"><i class="fa-solid fa-spa" aria-hidden="true"></i></div>
-                    <h3>Massoterapia</h3>
-                    <p>Massagens relaxantes, terapêuticas e drenagens linfáticas desenhadas para reduzir o estresse acumulado, liberar tensões musculares e ativar a circulação.</p>
-                </div>
+            <div class="contact-socials">
+              <button type="button" class="social-link" id="btn-whatsapp-contato"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></button>
+              <button type="button" class="social-link" id="btn-instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span>Instagram</span></button>
+              <button type="button" class="social-link" id="btn-maps"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><span>Como chegar</span></button>
             </div>
-        </section>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        <!-- SEÇÃO EQUIPE -->
-        <section id="equipe" class="equipe">
-            <h2>Especialistas em Você</h2>
-            <p class="section-desc">Conheça a equipe multidisciplinar que cuida da sua saúde e bem-estar.</p>
-            <div class="equipe-grid">
-                <div class="equipe-card">
-                    <div class="equipe-avatar" aria-hidden="true">IS</div>
-                    <h3>Dra. Ivana Silva</h3>
-                    <span class="cargo">Fisioterapia Dermato-Funcional</span>
-                    <p>Especialista em rejuvenescimento facial, peeling químico, microagulhamento e pós-operatório de cirurgias plásticas.</p>
-                </div>
-                <div class="equipe-card">
-                    <div class="equipe-avatar" aria-hidden="true">JC</div>
-                    <h3>Dra. Jéssica Costa</h3>
-                    <span class="cargo">Fisioterapia Clínica & Quiropraxia</span>
-                    <p>Especialista na reabilitação ortopédica, tratamento de dores crônicas na coluna, correção postural e ajustes quiropráticos.</p>
-                </div>
-                <div class="equipe-card">
-                    <div class="equipe-avatar" aria-hidden="true">BM</div>
-                    <h3>Dra. Beatriz Melo</h3>
-                    <span class="cargo">Instrutora de Pilates Clínico</span>
-                    <p>Especialista em movimento consciente, fortalecimento de core, reabilitação dinâmica e flexibilidade para todas as idades.</p>
-                </div>
-                <div class="equipe-card">
-                    <div class="equipe-avatar" aria-hidden="true">AR</div>
-                    <h3>Dra. Aúrea Rodrigues</h3>
-                    <span class="cargo">Massoterapeuta Terapêutica</span>
-                    <p>Especialista em liberação miofascial, massagem relaxante profunda, drenagem linfática método exclusivo e reflexologia.</p>
-                </div>
-                <div class="equipe-card">
-                    <div class="equipe-avatar" aria-hidden="true">MG</div>
-                    <h3>Dra. Mariana Goulart</h3>
-                    <span class="cargo">Biomédica Esteta</span>
-                    <p>Responsável por procedimentos injetáveis avançados, aplicação de toxina botulínica, preenchimento facial e bioestimuladores de colágeno.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO CONTATO -->
-        <section id="contato" class="contato">
-            <h2>Converse com a nossa equipe</h2>
-            <p>Tire suas dúvidas e combine sua avaliação pelo WhatsApp.</p>
-
-            <div class="contato-container">
-
-                <!-- INFO + BOTÕES DE CONTATO -->
-                <div class="contato-info-botoes">
-                    <div class="contato-info">
-                        <div class="info-item">
-                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                            <p>São Luís - Maranhão<br><span class="detalhe">Rua Um, quadra 03 - número 17 - Planalto Vinhais 1</span></p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                            <p>E-mail Oficial<br><a class="detalhe" id="txt-email" href="mailto:espacoplenaslz@gmail.com">espacoplenaslz@gmail.com</a></p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fa-solid fa-clock" aria-hidden="true"></i>
-                            <p>Horário de Atendimento<br>
-                            <span class="detalhe">Segunda a Sexta: 07h às 21h<br>Sábado: 08h às 12h</span></p>
-                        </div>
-                    </div>
-
-                    <div class="contato-botoes">
-                        <a id="btn-whatsapp-contato" class="contato-link whatsapp" href="https://wa.me/5598970285212" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Fale no WhatsApp<span class="sr-only"> (abre em nova aba)</span>
-                        </a>
-                        <a id="btn-instagram" class="contato-link instagram" href="https://www.instagram.com/espacoplenaslz/" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-brands fa-instagram" aria-hidden="true"></i> Siga no Instagram<span class="sr-only"> (abre em nova aba)</span>
-                        </a>
-                        <a id="btn-maps" class="contato-link maps-btn" href="https://www.google.com/maps?q=-2.5085350,-44.2589870" target="_blank" rel="noopener noreferrer">
-                            <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Ver no Google Maps<span class="sr-only"> (abre em nova aba)</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Espaço Plena - Saúde e Estética. Todos os direitos reservados.</p>
-        <p>São Luís - MA</p>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
+  <footer class="footer">
+    <div class="container footer-main">
+      <div><a href="#home" class="footer-brand">plena<span>✦</span></a><p>Saúde e bem-estar com cuidado e acolhimento.</p></div>
+      <div class="footer-links"><a href="#sobre">O Espaço</a><a href="#servicos">Serviços</a><a href="#equipe">Equipe</a><a href="#contato">Agendamentos</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="ano-atual">2026</span> Espaço Plena. Todos os direitos reservados.</span><span>São Luís · Maranhão</span></div>
+  </footer>
 </body>
 </html>
